@@ -4,9 +4,12 @@
 <title></title>
 </head>
 <body>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap');
+body {
+font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+</style>
   <header>
     <h1>i-filterのホームページ</h1>
     <nav class="gnav">
@@ -19,37 +22,42 @@
         </ul>
     </nav>
 </header>
-  <style>body {
-    padding-top: 90px; /* ヘッダーの後ろに要素が隠れないようにするため */
+  <style>* {
+   box-sizing: border-box;
 }
-
+body {
+   margin: 0;
+   padding: 0;
+   background-color: #e6e6e6;
+}
 header {
-    width: 100%; /* 幅いっぱいを指定 */
-    height: 80px; /* 高さを50pxに指定 */
-    background: #74fcad; /* 背景色にグレーを指定 */
-    padding: 20px 50px; /* ヘッダーに上下左右それぞれ余白を指定 */
-    box-sizing: border-box; /* padding分を含んで幅を100%にするため */
-    position: fixed; /* ウィンドウを基準に画面に固定 */
-    top: -50; /* 上下の固定位置を上から0pxにする */
-    left: 0; /* 左右の固定位置を左から0pxにする */
-    display: flex; /* 中の要素を横並びにする */
-    align-items: center; /* 中の要素を上下中央に並べる */
+   padding: 30px 4% 10px;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   background-color: #fff;
+   display: flex;
+   align-items: center;
 }
-
-header .gnav .menu {
-    display: flex; /* 中の要素を横並びにする */
+h1 {
+   margin: 0; padding: 0;
+   font-size: 20px;
 }
-
-header .gnav .menu li {
-    list-style: none; /* リストの[・]を消す */
+a {	
+   text-decoration: none;
+   color: #4b4b4b;
 }
-
-header .gnav .menu li + li {
-    margin-left: 40px; /* メニューそれぞれに間隔をあけるため */
+nav {
+   margin: 0 0 0 auto;
 }
-
-main {
-    height: 100vw; /* スクロールの演出を見れるようにmainに高さを指定 */
+ul {
+   list-style: none;
+   margin: 0;
+   display: flex;
+}
+li {
+   margin: 0 0 0 15px;
+   font-size: 14px;
 }
 </style>
   <h2><p>開発中...チョット待ってね</p></h2>
