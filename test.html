@@ -4,10 +4,10 @@
 <title></title>
 </head>
 <body>
-<a href="https://bing.com" class="button-85">Button 85</a>
+  <br>
+<a href="/" class="bn5">test</a>
 <style>
-/* CSS */
-.button-85 {
+.bn5 {
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -17,12 +17,9 @@
   position: relative;
   z-index: 0;
   border-radius: 10px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
 }
 
-.button-85:before {
+.bn5:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -42,15 +39,15 @@
   background-size: 400%;
   z-index: -1;
   filter: blur(5px);
-  -webkit-filter: blur(5px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
-  animation: glowing-button-85 20s linear infinite;
+  animation: glowingbn5 20s linear infinite;
+  opacity: 0;
   transition: opacity 0.3s ease-in-out;
   border-radius: 10px;
 }
 
-@keyframes glowing-button-85 {
+@keyframes glowingbn5 {
   0% {
     background-position: 0 0;
   }
@@ -62,15 +59,28 @@
   }
 }
 
-.button-85:after {
+.bn5:active {
+  color: #000;
+}
+
+.bn5:active:after {
+  background: transparent;
+}
+
+.bn5:hover:before {
+  opacity: 1;
+}
+
+.bn5:after {
   z-index: -1;
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #222;
+  background: #191919;
   left: 0;
   top: 0;
   border-radius: 10px;
-}</style>
+}
+  </style>
 </html>
