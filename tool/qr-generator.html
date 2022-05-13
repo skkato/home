@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+ 
+</head>
+ 
+<body>
+    <div style="text-align: center">
+<!-- jQuery読み込み -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- jQuery QR code読み込み -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+<!-- 文字コードライブラリ読み込み -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/encoding-japanese/1.0.30/encoding.min.js"></script>
+
+<!-- HTML部 -->
+<h3>QRコード作成ツール</h3>
+
+<div class="defaultdiv">
+<p>
+下のテキストボックスにQRコード化したい文字を入れて、生成ボタンを押してください。
+<p>
+  <input type="text" id="txtqr" name="txtqr" style="width:90%">
+</p>
+  <p><span>ＱＲ色：</span><input type="color" id="txtcolor" name="txtcolor" value="#000000"></p>
+  <p><span>背景色：</span><input type="color" id="txtbgcolor" name="txtbgcolor" value="#ffffff"></p>
+  
+  <p><span>サイズ：</span><input type="range" id="txtsize" name="txtsize" min="100" max="600" value="150"><span id="lblsize">150</span>px</p>
+<p>
+<button id="btnmake" style="width:45%">生成</button>
+<button id="btnclear" style="width:45%">クリア</button>
+</p>
+</div>
+<hr>
+<div><p>作成した文字列</p><p><span id="qrtxt"></span></p></div>
+<hr>
+<div id="qrcodearea"></div>
+<hr>
+
+<!-- スクリプト部 -->
+<script>
+jQuery(function($){ 
+  $('#txtsize').on('input',function(){
+    $('#lblsize').html($('#txtsize').val());
+  });
+  
+  $('#btnmake').click(function() {
+    var strqrorg = $('#txtqr').val();
+    var strqrsjis = Encoding.convert(strqrorg, 'SJIS');
+    var strcolor = $('#txtcolor').val();
+    var strbgcolor = $('#txtbgcolor').val();
+    var strsize = $('#txtsize').val();
+
+    $('#qrcodearea').html('');
+    $('#qrcodearea').qrcode({width: strsize, height: strsize, text: strqrsjis, foreground: strcolor, background: strbgcolor});
+  
+    $('#qrtxt').text(strqrorg);
+  })
+  $('#btnclear').click(function() {
+    $('#txtqr').val("");
+    $('#txtbgcolor').val('#ffffff');
+    $('#txtcolor').val('#000000');
+    $('#txtsize').val(150);
+    $('#lblsize').html(150);
+  })
+})
+</script>
+
+  <style>
+    /* テーブルの装飾 */
+    table {
+      /* 電卓のサイズ */
+      width: 300px;
+      height: 400px;
+      /* 電卓が浮き出るように影を付ける */
+      border: solid 1px #dcdcdca4;
+      border-right: solid 4px #dcdcdca4;
+      border-bottom: solid 4px #dcdcdca4;
+      border-radius: 10px;
+      /* インライン要素を中央に配置 */
+      text-align: center;
+      /* 余白調整 */
+      padding: 8px;
+      margin: 20px;
+    }
+ 
+    input {
+      /* ボタンのサイズ */
+      width: 70px;
+      height: 70px;
+      /* ボタンの文字サイズ */
+      font-size: x-large;
+      /* 数字部分の背景色 */
+      background-color: #dcdcdca4;
+      /* ボタンの詳細設定 */
+      border: none;
+      border-radius: 20px;
+      /* クリック時の黒枠を消す */
+      outline: none;
+    }
+    
+    /* ディスプレイの詳細設定 */
+    .display {
+      width: 250px;
+      text-align: right; /* 文字を右詰めに */
+      /* 見た目の詳細設定 */
+      background: #ffffff;
+      border-top: solid #dcdcdca4 5px;
+      border-bottom: solid #dcdcdca4 5px;
+      border-right: solid #b6b6b6 6px;
+      border-left: solid #b6b6b6 6px;
+      border-radius: 5px;
+    }
+    /* 演算子の背景色を上書きで設定 */
+    .operator {
+      background-color: #87cefa;
+    }
+    /* 記号＝の部分の背景色を上書きで設定 */
+    .equal {
+      background-color: #b6b6b6;
+    }
+ 
+    /* カーソルを上に乗せた時に色を濃くする */
+    input:hover {
+      background: #747373b9;
+    }
+    .display:hover {
+      background: #ffffff; /* ディスプレイ部分は無効化 */
+    }
+    .operator:hover {
+      background: #339cdd;
+    }
+ 
+    /* クリック時に色を濃くする */
+    input:active {
+      background:  #5a5a5a;
+    }
+    .operator:active {
+      background: #2c80b4;
+    }
+  </style>
+
+      <br>
+   <a href="https://i-filter.github.io/home/" class="button-27" >◁homeにもどる</a>
+  <style>
+.button-27 {
+  appearance: none;
+  background-color: #ffffff;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.button-27:disabled {
+  pointer-events: none;
+}
+
+.button-27:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-27:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+  </style>
+</body>
+</html>
